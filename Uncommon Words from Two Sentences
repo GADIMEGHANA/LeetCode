@@ -1,0 +1,27 @@
+import java.util.*;
+class Solution {
+    public static String[] uncommonFromSentences(String s1, String s2) {
+        
+        Map<String,Integer> m=new HashMap<>();
+        for(String word :s1.split(" ")){
+            m.put(word,m.getOrDefault(word,0)+1);
+        }
+        for(String word:s2.split(" ")){
+            m.put(word,m.getOrDefault(word,0)+1);
+        }
+        List<String> u=new ArrayList<>();
+        for(Map.Entry<String,Integer> e:m.entrySet()){
+            if(e.getValue()==1){
+                u.add(e.getKey());
+            }
+        }
+        return u.toArray(new String[0]);
+    }
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        String s1=sc.nextLine();
+        String s2=sc.nextLine();
+         String[] result = uncommonFromSentences(s1, s2);
+        System.out.println( Arrays.toString(result));
+    }
+}
