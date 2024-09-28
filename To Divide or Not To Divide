@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();  // Number of test cases
+
+        while (T-- > 0) {
+            long A = sc.nextLong();  
+            long B = sc.nextLong();  
+            long N = sc.nextLong();  
+            long num = (N + A - 1) / A * A;
+            while (num % B == 0) {
+                num += A;
+            }
+
+            System.out.println(num);
+        }
+
+        sc.close();
+    }
+}
